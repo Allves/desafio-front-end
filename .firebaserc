@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "desafio-front-end": {
+      "hosting": {
+        "desafio-front-end": [
+          "desafio-front-end"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "staging": "desafio-front-end"
+  }
+}

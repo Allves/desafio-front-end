@@ -122,8 +122,13 @@
               "devServerTarget": "desafio-front-end:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "desafio-front-end"
 }

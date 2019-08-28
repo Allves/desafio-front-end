@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "desafio-front-end",
+      "public": "dist/desafio-front-end",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
