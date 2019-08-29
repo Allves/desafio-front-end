@@ -1,6 +1,7 @@
 import { JSONService } from './../../../services/json.service';
 import { Component, OnInit } from '@angular/core';
 import { IPeople } from '../../model/people';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-people-list',
@@ -10,7 +11,11 @@ import { IPeople } from '../../model/people';
 export class PeopleListComponent implements OnInit {
   public peoples: IPeople[];
 
-  constructor(private jsonService: JSONService) {}
+  constructor(
+    private jsonService: JSONService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.getPeople();
@@ -22,7 +27,11 @@ export class PeopleListComponent implements OnInit {
       .subscribe((response: IPeople[]) => (this.peoples = response));
   }
 
-  filter(value: string) {
+  filter(value: string) {}
 
+  goToDetails(people: IPeople) {
+    this.router.navigate([`../details/${people.id}`], {
+      relativeTo: this.activatedRoute
+    });
   }
 }

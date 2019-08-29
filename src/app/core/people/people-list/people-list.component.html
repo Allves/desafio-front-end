@@ -6,6 +6,7 @@
     <th>Height</th>
     <th>Mass</th>
     <th>No. of Participations</th>
+    <th></th>
   </thead>
   <tbody>
     <tr *ngFor="let people of peoples">
@@ -29,6 +30,7 @@
       <td>
         {{ people.films.length }}
       </td>
+      <td (click)="goToDetails(people)">Details</td>
     </tr>
   </tbody>
 </table>
