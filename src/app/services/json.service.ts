@@ -13,12 +13,15 @@ export class JSONService {
   getPeople(): Observable<any> {
     return this.http.get<any>('../../../assets/db/people.json').pipe(
       tap(response =>
-        response.results.sort((a, b) =>
+        response.results.sort((a: IPeople, b: IPeople) =>
           b.films.length > a.films.length
             ? 1
-            : a.films.length > b.films.length
+            : b.films.length < a.films.length
             ? -1
-            : 0
+            : b.films.length === a.films.length
+            ? a.name > b.name ?
+            1 : a.name < b.name ?
+            -1 : 0 : 0
         )
       ),
       map(response => response.results),
