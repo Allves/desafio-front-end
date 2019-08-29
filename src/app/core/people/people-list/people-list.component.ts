@@ -1,4 +1,4 @@
-import { JSONService } from './../../services/json.service';
+import { JSONService } from './../../../services/json.service';
 import { Component, OnInit } from '@angular/core';
 import { IPeople } from '../../model/people';
 
@@ -20,5 +20,9 @@ export class PeopleListComponent implements OnInit {
     this.jsonService
       .getPeople()
       .subscribe((response: IPeople[]) => (this.peoples = response));
+  }
+
+  filter(value: string) {
+
   }
 }
