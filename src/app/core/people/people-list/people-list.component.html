@@ -1,0 +1,34 @@
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Year of Birth</th>
+    <th>Height</th>
+    <th>Mass</th>
+    <th>No. of Participations</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let people of peoples">
+      <td>
+        {{ people.name }}
+      </td>
+
+      <td>
+        {{ people.gender }}
+      </td>
+
+      <td>
+        {{ people.birth_year }}
+      </td>
+      <td>
+        {{ people.height }}
+      </td>
+      <td>
+        {{ people.mass }}
+      </td>
+      <td>
+        {{ people.films.length }}
+      </td>
+    </tr>
+  </tbody>
+</table>

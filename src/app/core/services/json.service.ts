@@ -10,7 +10,7 @@ export class JSONService {
   constructor(private http: HttpClient) {}
 
   getPeople(): Observable<any> {
-    return this.http.get('./../../../assets/db/people.json').pipe(
+    return this.http.get<any>('../../../assets/db/people.json').pipe(
       map(response => response.results as IPeople[]),
       catchError(this.handleError('getPeople', []))
     );

@@ -8,7 +8,7 @@ import { IPeople } from '../../model/people';
   styleUrls: ['./people-list.component.scss']
 })
 export class PeopleListComponent implements OnInit {
-  public people: IPeople[];
+  public peoples: IPeople[];
 
   constructor(private jsonService: JSONService) {}
 
@@ -19,6 +19,6 @@ export class PeopleListComponent implements OnInit {
   getPeople() {
     this.jsonService
       .getPeople()
-      .subscribe((response: IPeople[]) => this.people = response);
+      .subscribe((response: IPeople[]) => (this.peoples = response));
   }
 }
