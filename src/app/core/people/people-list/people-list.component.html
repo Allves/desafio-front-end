@@ -1,6 +1,11 @@
 <div class="centered">
-  <div class="cards">
-    <div class="card" *ngFor="let people of peoples">
+  <div class="cards" *ngIf="peoples && peoples.length > 0">
+    <div
+      class="card"
+      *ngFor="
+        let people of peoples | paginate: { itemsPerPage: 5, currentPage: p }
+      "
+    >
       <div class="card-title">
         <h1>{{ people.name }}</h1>
         <span class="description">Gender: {{ people.gender }}</span>
@@ -26,5 +31,6 @@
         </ul>
       </div>
     </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>

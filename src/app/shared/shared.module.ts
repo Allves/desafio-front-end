@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PaginatorComponent } from './paginator/paginator.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { CardListComponent } from './card-list/card-list.component';
 
-const components = [PaginatorComponent, CardListComponent];
+const components = [CardListComponent];
 
 @NgModule({
   declarations: [...components],
-  imports: [CommonModule],
-  exports: [...components]
+  imports: [CommonModule, NgxPaginationModule],
+  exports: [...components, NgxPaginationModule]
 })
 export class SharedModule {}

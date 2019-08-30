@@ -1,18 +1,10 @@
-import { FilmsModule } from './films/films.module';
-import { PeopleModule } from './people/people.module';
-import { JSONService } from './../services/json.service';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import { NgModule } from '@angular/core';
+import { JSONService } from './../services/json.service';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    PeopleModule,
-    FilmsModule
-  ],
+  imports: [CommonModule],
   providers: [JSONService]
 })
-export class CoreModule { }
+export class CoreModule {}

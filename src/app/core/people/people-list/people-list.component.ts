@@ -45,4 +45,16 @@ export class PeopleListComponent implements OnInit {
   getFilmName(id: number) {
     return this.films.find(x => x.id === id).title;
   }
+
+  handlePrev() {
+
+  }
+
+  handleNext() {
+
+  }
+
+  handlePage() {
+
+  }
 }
