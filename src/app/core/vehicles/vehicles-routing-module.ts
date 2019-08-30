@@ -18,7 +18,7 @@ const routes: Routes = [
     path: 'details/:id',
     component: VehicleDetailsComponent,
     resolve: {
-      film: VehiclesResolverGuard
+      model: VehiclesResolverGuard
     }
   }
 ];

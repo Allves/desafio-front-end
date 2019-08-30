@@ -1,1 +1,32 @@
-<p>species-list works!</p>
+<div class="centered">
+    <div class="cards" *ngIf="species && species.length > 0">
+      <div
+        class="card"
+        *ngFor="
+          let specie of species | paginate: { itemsPerPage: 5, currentPage: p }
+        "
+      >
+        <div class="card-title">
+          <h1>{{ specie.name }}</h1>
+          <span class="description">Classification: {{ specie.classification }}</span>
+        </div>
+        <div class="card-body">
+            <p class="card-description">
+                <strong>Average Height:</strong> {{ specie.average_height }}
+              </p>
+          <p class="card-description">
+            <strong>Average Lifespan:</strong> {{ specie.average_lifespan }}
+          </p>
+
+
+          <h3>Characters who are of this race:</h3>
+          <ul *ngFor="let people of specie.people">
+            <li (click)="goToDetails('people', people)">
+              {{ getPeopleName(people) }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>

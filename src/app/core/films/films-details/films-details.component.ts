@@ -28,7 +28,7 @@ export class FilmsDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.film = this.activatedRoute.snapshot.data.film;
+    this.film = this.activatedRoute.snapshot.data.model;
     this.getPlanets();
     this.getPeople();
     this.getVehicles();

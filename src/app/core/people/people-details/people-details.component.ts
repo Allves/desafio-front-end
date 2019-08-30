@@ -25,7 +25,7 @@ export class PeopleDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.people = this.activatedRoute.snapshot.data.people;
+    this.people = this.activatedRoute.snapshot.data.model;
 
     this.getFilms();
     this.getVehicles();

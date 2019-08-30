@@ -18,7 +18,7 @@ const routes: Routes = [
     path: 'details/:id',
     component: StarshipsDetailsComponent,
     resolve: {
-      film: StarshipsResolverGuard
+      model: StarshipsResolverGuard
     }
   }
 ];

@@ -18,7 +18,7 @@ const routes: Routes = [
     path: 'details/:id',
     component: PeopleDetailsComponent,
     resolve: {
-      people: PeopleResolverGuard
+      model: PeopleResolverGuard
     }
   }
 ];

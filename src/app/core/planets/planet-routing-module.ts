@@ -18,7 +18,7 @@ const routes: Routes = [
     path: 'details/:id',
     component: PlanetDetailsComponent,
     resolve: {
-      film: PlanetsResolverGuard
+      model: PlanetsResolverGuard
     }
   }
 ];

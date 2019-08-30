@@ -1,1 +1,46 @@
-<p>species-details works!</p>
+<div class="card">
+  <div class="card-title">
+    <h1>{{ specie.name }}</h1>
+    <span class="description">Homeworld: {{ specie.homeworld }}</span>
+  </div>
+  <div class="card-body">
+    <p class="card-description">
+      <strong>Language:</strong> {{ specie.language }}
+    </p>
+
+    <p class="card-description">
+      <strong>Designation:</strong> {{ specie.designation }}
+    </p>
+
+    <p class="card-description">
+      <strong>Classification:</strong> {{ specie.classification }}
+    </p>
+
+    <p class="card-description">
+      <strong>Eye Colors:</strong> {{ specie.eye_colors }}
+    </p>
+
+    <p class="card-description">
+      <strong>Average Height:</strong> {{ specie.average_height }}
+    </p>
+
+    <p class="card-description">
+      <strong>Average Lifespan:</strong> {{ specie.average_lifespan }}
+    </p>
+
+    <app-card-list
+      title="People who are of this race"
+      [items]="characters"
+      [displayFields]="['name']"
+      path="people"
+    >
+    </app-card-list>
+
+    <app-card-list
+      title="Movies this specie appears"
+      [items]="films"
+      [displayFields]="['title']"
+    >
+    </app-card-list>
+  </div>
+</div>

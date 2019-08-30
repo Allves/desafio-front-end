@@ -30,7 +30,7 @@ export class FilmsListComponent implements OnInit {
       .subscribe((response: IPeople[]) => (this.peoples = response));
   }
 
-  filter(value: string) {}
+
 
   goToDetails(path: string, id: string) {
     this.router.navigate([`${path}/details/${id}`]);
