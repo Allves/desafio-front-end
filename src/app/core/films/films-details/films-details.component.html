@@ -18,89 +18,62 @@
       <strong>Description:</strong> {{ film.opening_crawl }}
     </p>
 
-    <h3>Planets on the movie:</h3>
-    <div class="cards">
-      <div *ngFor="let planet of planets" class="card">
-        <p><strong>Name:</strong> {{ planet.name }}</p>
-        <p><strong>Climate: </strong> {{ planet.climate }}</p>
+    <app-card-list
+      title="Planets on the movie"
+      [items]="planets"
+      [displayFields]="[
+        'name',
+        'climate',
+        'diameter',
+        'gravity',
+        'orbital_period',
+        'population'
+      ]"
+      path="planets"
+    >
+    </app-card-list>
+    <app-card-list
+      title="People on the movie"
+      [items]="characters"
+      [displayFields]="['name', 'gender']"
+      path="people"
+    >
+    </app-card-list>
 
-        <p><strong>Diameter: </strong> {{ planet.diameter }}</p>
+    <app-card-list
+      title="Species on the movie"
+      [items]="species"
+      [displayFields]="['name', 'classification', 'designation']"
+      path="species"
+    >
+    </app-card-list>
 
-        <p><strong>Orbital Period: </strong> {{ planet.orbital_period }}</p>
+    <app-card-list
+      title="Vehicles on the movie"
+      [items]="vehicles"
+      [displayFields]="[
+        'name',
+        'model',
+        'cost_in_credits',
+        'cargo_capacity',
+        'manufacturer'
+      ]"
+      path="vehicles"
+    >
+    </app-card-list>
 
-        <p><strong>Gravity: </strong> {{ planet.gravity }}</p>
-
-        <p><strong>Population: </strong> {{ planet.population }}</p>
-        <button
-          class="button button-details"
-          (click)="goToDetails('planet', planet.id)"
-        >
-          Details
-        </button>
-      </div>
-    </div>
-
-    <h3>People on the movie:</h3>
-    <div class="cards">
-      <div *ngFor="let character of characters" class="card">
-        <p><strong>Name:</strong> {{ character.name }}</p>
-        <p><strong>Gender: </strong> {{ character.gender }}</p>
-        <button
-          class="button button-details"
-          (click)="goToDetails('people', character.id)"
-        >
-          Details
-        </button>
-      </div>
-    </div>
-
-    <h3>Species on the movie:</h3>
-    <div class="cards">
-      <div *ngFor="let specie of species" class="card">
-        <p><strong>Name:</strong> {{ specie.name }}</p>
-        <p><strong>Classification: </strong> {{ specie.classification }}</p>
-        <p><strong>Designation: </strong> {{ specie.designation }}</p>
-        <button
-          class="button button-details"
-          (click)="goToDetails('species', specie.id)"
-        >
-          Details
-        </button>
-      </div>
-    </div>
-
-    <h3>Vehicles on the movie:</h3>
-    <div class="cards">
-      <div *ngFor="let vehicle of vehicles" class="card">
-        <p><strong>Name:</strong> {{ vehicle.name }}</p>
-        <p><strong>Model: </strong> {{ vehicle.model }}</p>
-        <p><strong>Cost in credits: </strong> {{ vehicle.cost_in_credits }}</p>
-        <p><strong>Cargo capacity: </strong> {{ vehicle.cargo_capacity }}</p>
-        <p><strong>Manufacturer: </strong> {{ vehicle.manufacturer }}</p>
-        <button
-          class="button button-details"
-          (click)="goToDetails('vehicle', vehicle.id)"
-        >
-          Details
-        </button>
-      </div>
-    </div>
-
-    <h3>Starships on the movie:</h3>
-    <div class="cards">
-      <div *ngFor="let starship of starships" class="card">
-        <p><strong>Name:</strong> {{ starship.name }}p></p>
-        <p><strong>Model: </strong> {{ starship.model }}</p>
-        <p><strong>Cost in credits: </strong> {{ starship.cost_in_credits }}</p>
-        <p><strong>Cargo capacity: </strong> {{ starship.cargo_capacity }}</p>
-        <p><strong>Manufacturer: </strong> {{ starship.manufacturer }}</p>
-        <button
-          class="button button-details"
-          (click)="goToDetails('starships', starship.id)"
-        >
-          Details
-        </button>
-      </div>
-    </div>
+    <app-card-list
+      title="Starships on the movie"
+      [items]="starships"
+      [displayFields]="[
+        'name',
+        'model',
+        'cost_in_credits',
+        'cargo_capacity',
+        'manufacturer'
+      ]"
+      path="starships"
+    >
+    </app-card-list>
   </div>
 </div>

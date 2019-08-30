@@ -1,0 +1,13 @@
+<h3>{{ title }}:</h3>
+<div class="cards">
+  <div *ngFor="let item of items" class="card">
+    <div *ngFor="let displayField of displayFields; let i = index;">
+
+      <p><strong>{{formatDisplayField(displayField) | titlecase}}:</strong> {{ item[displayField] }}</p>
+    </div>
+
+    <button class="button button-details" (click)="goToDetails(item.id)">
+      Details
+    </button>
+  </div>
+</div>
