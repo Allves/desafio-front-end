@@ -1,9 +1,10 @@
-import { IVehicle } from './../core/model/vehicle';
-import { IStarship } from './../core/model/starship';
-import { ISpecies } from './../core/model/species';
-import { IPlanet } from './../core/model/planet';
-import { IFilm } from './../core/model/film';
-import { IPeople } from './../core/model/people';
+import { IPeople } from '../model/people';
+import { IVehicle } from '../model/vehicle';
+import { IStarship } from '../model/starship';
+import { ISpecies } from '../model/species';
+import { IPlanet } from '../model/planet';
+import { IFilm } from '../model/film';
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';

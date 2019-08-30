@@ -1,7 +1,7 @@
-import { IFilm } from './../../model/film';
+import { IFilm } from './../../../model/film';
 import { JSONService } from './../../../services/json.service';
 import { Component, OnInit } from '@angular/core';
-import { IPeople } from '../../model/people';
+import { IPeople } from '../../../model/people';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({

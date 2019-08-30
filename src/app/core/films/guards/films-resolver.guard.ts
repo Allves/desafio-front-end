@@ -6,7 +6,7 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { JSONService } from 'src/app/services/json.service';
-import { IFilm } from './../../model/film';
+import { IFilm } from './../../../model/film';
 
 @Injectable({
   providedIn: 'root'

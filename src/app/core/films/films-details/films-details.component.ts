@@ -1,12 +1,12 @@
-import { IPlanet } from './../../model/planet';
+import { IPlanet } from './../../../model/planet';
 import { JSONService } from './../../../services/json.service';
-import { IFilm } from './../../model/film';
+import { IFilm } from './../../../model/film';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ISpecies } from '../../model/species';
-import { IStarship } from '../../model/starship';
-import { IVehicle } from '../../model/vehicle';
-import { IPeople } from '../../model/people';
+import { ISpecies } from '../../../model/species';
+import { IStarship } from '../../../model/starship';
+import { IVehicle } from '../../../model/vehicle';
+import { IPeople } from '../../../model/people';
 
 @Component({
   selector: 'app-films-details',

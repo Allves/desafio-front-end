@@ -5,7 +5,7 @@ import {
   RouterStateSnapshot
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { IPeople } from '../../model/people';
+import { IPeople } from '../../../model/people';
 import { JSONService } from 'src/app/services/json.service';
 
 @Injectable({
