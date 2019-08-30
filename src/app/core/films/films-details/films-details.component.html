@@ -4,20 +4,24 @@
     <span class="description">Chronological order: {{ film.episode_id }}</span>
   </div>
   <div class="card-body">
-    <p class="card-director"><strong>Director:</strong> {{ film.director }}</p>
-    <p class="card-producer"><strong>Producer:</strong> {{ film.producer }}</p>
-    <p class="card-release">
+    <p class="card-description">
+      <strong>Director:</strong> {{ film.director }}
+    </p>
+    <p class="card-description">
+      <strong>Producer:</strong> {{ film.producer }}
+    </p>
+    <p class="card-description">
       <strong>Release Date:</strong>
       {{ film.release_date | date: 'dd/MM/yyyy' }}
     </p>
-    <p class="description">
+    <p class="card-description">
       <strong>Description:</strong> {{ film.opening_crawl }}
     </p>
 
     <h3>Planets on the movie:</h3>
     <div class="cards">
       <div *ngFor="let planet of planets" class="card">
-        <h4>Name: {{ planet.name }}</h4>
+        <p><strong>Name:</strong> {{ planet.name }}</p>
         <p><strong>Climate: </strong> {{ planet.climate }}</p>
 
         <p><strong>Diameter: </strong> {{ planet.diameter }}</p>
@@ -39,7 +43,7 @@
     <h3>People on the movie:</h3>
     <div class="cards">
       <div *ngFor="let character of characters" class="card">
-        <h4>Name: {{ character.name }}</h4>
+        <p><strong>Name:</strong> {{ character.name }}</p>
         <p><strong>Gender: </strong> {{ character.gender }}</p>
         <button
           class="button button-details"
@@ -53,7 +57,7 @@
     <h3>Species on the movie:</h3>
     <div class="cards">
       <div *ngFor="let specie of species" class="card">
-        <h4>Name: {{ specie.name }}</h4>
+        <p><strong>Name:</strong> {{ specie.name }}</p>
         <p><strong>Classification: </strong> {{ specie.classification }}</p>
         <p><strong>Designation: </strong> {{ specie.designation }}</p>
         <button
@@ -68,7 +72,7 @@
     <h3>Vehicles on the movie:</h3>
     <div class="cards">
       <div *ngFor="let vehicle of vehicles" class="card">
-        <h4>Name: {{ vehicle.name }}</h4>
+        <p><strong>Name:</strong> {{ vehicle.name }}</p>
         <p><strong>Model: </strong> {{ vehicle.model }}</p>
         <p><strong>Cost in credits: </strong> {{ vehicle.cost_in_credits }}</p>
         <p><strong>Cargo capacity: </strong> {{ vehicle.cargo_capacity }}</p>
@@ -85,7 +89,7 @@
     <h3>Starships on the movie:</h3>
     <div class="cards">
       <div *ngFor="let starship of starships" class="card">
-        <h4>Name: {{ starship.name }}</h4>
+        <p><strong>Name:</strong> {{ starship.name }}p></p>
         <p><strong>Model: </strong> {{ starship.model }}</p>
         <p><strong>Cost in credits: </strong> {{ starship.cost_in_credits }}</p>
         <p><strong>Cargo capacity: </strong> {{ starship.cargo_capacity }}</p>

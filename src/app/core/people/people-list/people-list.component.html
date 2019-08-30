@@ -1,21 +1,29 @@
-<div class="card" *ngFor="let people of peoples">
-  <div class="card-title">
-    <h1>{{ people.name }}</h1>
-    <span class="description">Gender: {{ people.gender }}</span>
-  </div>
-  <div class="card-body">
-    <p class="card-description">
-      <strong>Year of Birth:</strong> {{ people.birth_year }}
-    </p>
-    <p class="card-description"><strong>Height:</strong> {{ people.height }}</p>
-    <p class="card-description"><strong>Mass:</strong>{{ people.mass }}</p>
-
-    <h3>Films where person appears:</h3>
-    <div class="cards">
-      <div *ngFor="let film of people.films" class="card">
-        <p (click)="goToDetails('films', film)">
-          <strong>Film: </strong> {{ getFilmName(film) }}
+<div class="centered">
+  <div class="cards">
+    <div class="card" *ngFor="let people of peoples">
+      <div class="card-title">
+        <h1>{{ people.name }}</h1>
+        <span class="description">Gender: {{ people.gender }}</span>
+      </div>
+      <div class="card-body">
+        <p class="card-description">
+          <strong>Year of Birth:</strong> {{ people.birth_year }}
         </p>
+        <p class="card-description">
+          <strong>Height:</strong> {{ people.height }}
+        </p>
+        <p class="card-description"><strong>Mass: </strong>{{ people.mass }}</p>
+
+        <p class="card-description">
+          <strong>No. of Participations:</strong> {{ people.films.length }}
+        </p>
+
+        <h3>Films where person appears:</h3>
+        <ul *ngFor="let film of people.films">
+          <li (click)="goToDetails('films', film)">
+            {{ getFilmName(film) }}
+          </li>
+        </ul>
       </div>
     </div>
   </div>
