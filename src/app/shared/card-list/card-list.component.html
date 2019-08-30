@@ -1,13 +1,27 @@
-<h3>{{ title }}:</h3>
+<h2>{{ title }}:</h2>
 <div class="cards">
   <div *ngFor="let item of items" class="card">
-    <div *ngFor="let displayField of displayFields; let i = index;">
-
-      <p><strong>{{formatDisplayField(displayField) | titlecase}}:</strong> {{ item[displayField] }}</p>
+    <svg
+      class="svg-redirect"
+      (click)="goToDetails(item.id)"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+    >
+      <path fill="#FFE81F" d="M14 16v-11l-1 1v9h-12v-12h9l1-1h-11v14z"></path>
+      <path
+        fill="#FFE81F"
+        d="M16 0h-5l1.8 1.8-6.8 6.8 1.4 1.4 6.8-6.8 1.8 1.8z"
+      ></path>
+    </svg>
+    <div *ngFor="let displayField of displayFields; let i = index">
+      <p>
+        <strong>{{ formatDisplayField(displayField) | titlecase }}:</strong>
+        {{ item[displayField] }}
+      </p>
     </div>
-
-    <button class="button button-details" (click)="goToDetails(item.id)">
-      Details
-    </button>
   </div>
 </div>

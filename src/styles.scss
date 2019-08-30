@@ -1,6 +1,6 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic';
 
-$yellow: #FFE81F;
+$yellow: #ffe81f;
 $black: #000;
 
 * {
@@ -56,7 +56,7 @@ body {
 }
 
 .card {
-  border: #FFE81F solid 1px;
+  border: #ffe81f solid 1px;
   color: white;
   border-radius: 2px;
   display: inline-block;
@@ -98,7 +98,7 @@ ul {
   list-style: none;
   display: inline-block;
   li {
-    &:hover{
+    &:hover {
       cursor: pointer;
       color: $yellow;
       font-weight: 500;
@@ -106,6 +106,14 @@ ul {
   }
 }
 
-strong, h3 {
+strong,
+h2,
+h3 {
   color: $yellow;
+}
+
+.svg-redirect {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
 }
