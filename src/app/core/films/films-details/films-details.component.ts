@@ -3,6 +3,10 @@ import { JSONService } from './../../../services/json.service';
 import { IFilm } from './../../model/film';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ISpecies } from '../../model/species';
+import { IStarship } from '../../model/starship';
+import { IVehicle } from '../../model/vehicle';
+import { IPeople } from '../../model/people';
 
 @Component({
   selector: 'app-films-details',
@@ -12,6 +16,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class FilmsDetailsComponent implements OnInit {
   public film: IFilm;
   public planets: IPlanet[];
+  public species: ISpecies[];
+  public characters: IPeople[];
+  public starships: IStarship[];
+  public vehicles: IVehicle[];
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -21,6 +30,10 @@ export class FilmsDetailsComponent implements OnInit {
   ngOnInit() {
     this.film = this.activatedRoute.snapshot.data.film;
     this.getPlanets();
+    this.getPeople();
+    this.getVehicles();
+    this.getSpecies();
+    this.getStarships();
   }
 
   getPlanets() {
@@ -34,12 +47,51 @@ export class FilmsDetailsComponent implements OnInit {
       );
   }
 
-  getPlanet(id: string) {
-    // this.jsonService.getUniquePlanet(id)
-    // .subscribe((response: IPlanet) => (response));
+  getSpecies() {
+    this.jsonService
+      .getSpecies()
+      .subscribe(
+        (response: ISpecies[]) =>
+          (this.species = response.filter(f =>
+            this.film.species.includes(f.id)
+          ))
+      );
   }
 
-  goToPlanetDetails(planet: IPlanet) {
+  getStarships() {
+    this.jsonService
+      .getStarships()
+      .subscribe(
+        (response: IStarship[]) =>
+          (this.starships = response.filter(f =>
+            this.film.starships.includes(f.id)
+          ))
+      );
+  }
 
+  getVehicles() {
+    this.jsonService
+      .getVehicles()
+      .subscribe(
+        (response: IVehicle[]) =>
+          (this.vehicles = response.filter(f =>
+            this.film.vehicles.includes(f.id)
+          ))
+      );
+  }
+
+  getPeople() {
+    this.jsonService
+      .getPeople()
+      .subscribe(
+        (response: IPeople[]) =>
+          (this.characters = response.filter(f =>
+            this.film.characters.includes(f.id)
+          ))
+      );
+  }
+
+  goToDetails(path: string, id: string) {
+    this.router.navigate([`${path}/details/${id}`]);
   }
 }

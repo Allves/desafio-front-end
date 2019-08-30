@@ -81,7 +81,7 @@ export class JSONService {
     return this.http.get<any>('../../../assets/db/starships.json').pipe(
       tap(response =>
         response.results.sort((a: IStarship, b: IStarship) =>
-          b.cost_in_credits > a.cost_in_credits
+          b.cost_in_credits > a.cost_in_credits || a.cost_in_credits === 'unknown'
             ? 1
             : b.cost_in_credits < a.cost_in_credits
             ? -1
@@ -97,7 +97,7 @@ export class JSONService {
     return this.http.get<any>('../../../assets/db/vehicles.json').pipe(
       tap(response =>
         response.results.sort((a: IVehicle, b: IVehicle) =>
-          b.cost_in_credits > a.cost_in_credits
+          b.cost_in_credits > a.cost_in_credits || a.cost_in_credits === 'unknown'
             ? 1
             : b.cost_in_credits < a.cost_in_credits
             ? -1

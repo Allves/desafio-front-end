@@ -15,8 +15,8 @@
     </p>
 
     <h3>Planets on the movie:</h3>
-    <div class="planets">
-      <div *ngFor="let planet of planets" class="planet">
+    <div class="cards">
+      <div *ngFor="let planet of planets" class="card">
         <h4>Name: {{ planet.name }}</h4>
         <p><strong>Climate: </strong> {{ planet.climate }}</p>
 
@@ -27,23 +27,76 @@
         <p><strong>Gravity: </strong> {{ planet.gravity }}</p>
 
         <p><strong>Population: </strong> {{ planet.population }}</p>
-        <button class="button button-planet"(click)="goToPlanetDetails(planet)">Details</button>
+        <button
+          class="button button-details"
+          (click)="goToDetails('planet', planet.id)"
+        >
+          Details
+        </button>
       </div>
     </div>
 
-    <div class="peoples">
-        <div *ngFor="let planet of planets" class="planet">
-          <h4>Name: {{ planet.name }}</h4>
-          <p><strong>Climate: </strong> {{ planet.climate }}</p>
-
-          <p><strong>Diameter: </strong> {{ planet.diameter }}</p>
-
-          <p><strong>Orbital Period: </strong> {{ planet.orbital_period }}</p>
-
-          <p><strong>Gravity: </strong> {{ planet.gravity }}</p>
-
-          <p><strong>Population: </strong> {{ planet.population }}</p>
-        </div>
+    <h3>People on the movie:</h3>
+    <div class="cards">
+      <div *ngFor="let character of characters" class="card">
+        <h4>Name: {{ character.name }}</h4>
+        <p><strong>Gender: </strong> {{ character.gender }}</p>
+        <button
+          class="button button-details"
+          (click)="goToDetails('people', character.id)"
+        >
+          Details
+        </button>
       </div>
+    </div>
+
+    <h3>Species on the movie:</h3>
+    <div class="cards">
+      <div *ngFor="let specie of species" class="card">
+        <h4>Name: {{ specie.name }}</h4>
+        <p><strong>Classification: </strong> {{ specie.classification }}</p>
+        <p><strong>Designation: </strong> {{ specie.designation }}</p>
+        <button
+          class="button button-details"
+          (click)="goToDetails('species', specie.id)"
+        >
+          Details
+        </button>
+      </div>
+    </div>
+
+    <h3>Vehicles on the movie:</h3>
+    <div class="cards">
+      <div *ngFor="let vehicle of vehicles" class="card">
+        <h4>Name: {{ vehicle.name }}</h4>
+        <p><strong>Model: </strong> {{ vehicle.model }}</p>
+        <p><strong>Cost in credits: </strong> {{ vehicle.cost_in_credits }}</p>
+        <p><strong>Cargo capacity: </strong> {{ vehicle.cargo_capacity }}</p>
+        <p><strong>Manufacturer: </strong> {{ vehicle.manufacturer }}</p>
+        <button
+          class="button button-details"
+          (click)="goToDetails('vehicle', vehicle.id)"
+        >
+          Details
+        </button>
+      </div>
+    </div>
+
+    <h3>Starships on the movie:</h3>
+    <div class="cards">
+      <div *ngFor="let starship of starships" class="card">
+        <h4>Name: {{ starship.name }}</h4>
+        <p><strong>Model: </strong> {{ starship.model }}</p>
+        <p><strong>Cost in credits: </strong> {{ starship.cost_in_credits }}</p>
+        <p><strong>Cargo capacity: </strong> {{ starship.cargo_capacity }}</p>
+        <p><strong>Manufacturer: </strong> {{ starship.manufacturer }}</p>
+        <button
+          class="button button-details"
+          (click)="goToDetails('starships', starship.id)"
+        >
+          Details
+        </button>
+      </div>
+    </div>
   </div>
 </div>

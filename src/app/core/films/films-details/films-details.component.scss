@@ -1,9 +1,9 @@
-.planets {
+.cards {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
-  .planet {
+  .card {
     background: #fff;
     border-radius: 2px;
     display: inline-block;
