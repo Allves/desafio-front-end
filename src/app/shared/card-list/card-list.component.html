@@ -1,9 +1,9 @@
 <h2>{{ title }}:</h2>
 <div class="cards">
-  <div
-    *ngFor="let item of items"
-    class="card"
-  >
+  <div class="card" *ngIf="items.length === 0">
+    <strong>None</strong>
+  </div>
+  <div *ngFor="let item of items" class="card">
     <svg
       class="svg-redirect"
       (click)="goToDetails(item.id)"

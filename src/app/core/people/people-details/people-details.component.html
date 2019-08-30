@@ -1,1 +1,48 @@
-<p>people-details works!</p>
+<div class="card">
+  <div class="card-title">
+    <h1>{{ people.name }}</h1>
+    <span class="description">Homeworld: {{ people.homeworld }}</span>
+  </div>
+  <div class="card-body">
+    <p class="card-description"><strong>Gender:</strong> {{ people.gender }}</p>
+    <p class="card-description"><strong>Height:</strong> {{ people.height }}</p>
+
+    <p class="card-description"><strong>Mass:</strong> {{ people.mass }}</p>
+
+    <app-card-list
+      title="Movies where character played a role"
+      [items]="films"
+      [displayFields]="['title']"
+      path="films"
+    >
+    </app-card-list>
+
+    <app-card-list
+      title="Vehicles this character drived"
+      [items]="vehicles"
+      [displayFields]="[
+        'name',
+        'model',
+        'cost_in_credits',
+        'cargo_capacity',
+        'manufacturer'
+      ]"
+      path="vehicles"
+    >
+    </app-card-list>
+
+    <app-card-list
+      title="Starships this character was"
+      [items]="starships"
+      [displayFields]="[
+        'name',
+        'model',
+        'cost_in_credits',
+        'cargo_capacity',
+        'manufacturer'
+      ]"
+      path="starships"
+    >
+    </app-card-list>
+  </div>
+</div>
