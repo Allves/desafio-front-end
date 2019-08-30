@@ -1,3 +1,4 @@
+import { IFilm } from './../../model/film';
 import { JSONService } from './../../../services/json.service';
 import { Component, OnInit } from '@angular/core';
 import { IPeople } from '../../model/people';
@@ -10,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class PeopleListComponent implements OnInit {
   public peoples: IPeople[];
+  public films: IFilm[];
 
   constructor(
     private jsonService: JSONService,
@@ -18,6 +20,7 @@ export class PeopleListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.getFilms();
     this.getPeople();
   }
 
@@ -29,9 +32,17 @@ export class PeopleListComponent implements OnInit {
 
   filter(value: string) {}
 
-  goToDetails(people: IPeople) {
-    this.router.navigate([`../details/${people.id}`], {
-      relativeTo: this.activatedRoute
-    });
+  goToDetails(path: string, id: string) {
+    this.router.navigate([`${path}/details/${id}`]);
+  }
+
+  getFilms() {
+    this.jsonService
+      .getFilms()
+      .subscribe((response: IFilm[]) => (this.films = response));
+  }
+
+  getFilmName(id: number) {
+    return this.films.find(x => x.id === id).title;
   }
 }
