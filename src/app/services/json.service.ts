@@ -1,3 +1,4 @@
+import { IFilm } from './../core/model/film';
 import { IPeople } from './../core/model/people';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -36,6 +37,13 @@ export class JSONService {
     return this.http.get<any>('../../../assets/db/people.json').pipe(
       map(response => response.results.find(x => x.id.toString() === id)),
       catchError(this.handleError('getUniquePeople', []))
+    );
+  }
+
+  getUniqueFilm(id: string): Observable<IFilm> {
+    return this.http.get<any>('../../../assets/db/films.json').pipe(
+      map(response => response.results.find(x => x.id.toString() === id)),
+      catchError(this.handleError('getUniqueFilm', []))
     );
   }
 

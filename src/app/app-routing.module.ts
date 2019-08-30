@@ -1,3 +1,4 @@
+import { FilmsModule } from './core/films/films.module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -12,6 +13,13 @@ const routes: Routes = [
     loadChildren: () =>
       {
         return import('./core/people/people.module').then(m => m.PeopleModule);
+      }
+  },
+  {
+    path: 'films',
+    loadChildren: () =>
+      {
+        return import('./core/films/films.module').then(m => m.FilmsModule);
       }
   }
 ];
