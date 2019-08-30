@@ -1,1 +1,49 @@
-<p>films-details works!</p>
+<div class="card">
+  <div class="card-title">
+    <h1>{{ film.title }}</h1>
+    <span class="description">Chronological order: {{ film.episode_id }}</span>
+  </div>
+  <div class="card-body">
+    <p class="card-director"><strong>Director:</strong> {{ film.director }}</p>
+    <p class="card-producer"><strong>Producer:</strong> {{ film.producer }}</p>
+    <p class="card-release">
+      <strong>Release Date:</strong>
+      {{ film.release_date | date: 'dd/MM/yyyy' }}
+    </p>
+    <p class="description">
+      <strong>Description:</strong> {{ film.opening_crawl }}
+    </p>
+
+    <h3>Planets on the movie:</h3>
+    <div class="planets">
+      <div *ngFor="let planet of planets" class="planet">
+        <h4>Name: {{ planet.name }}</h4>
+        <p><strong>Climate: </strong> {{ planet.climate }}</p>
+
+        <p><strong>Diameter: </strong> {{ planet.diameter }}</p>
+
+        <p><strong>Orbital Period: </strong> {{ planet.orbital_period }}</p>
+
+        <p><strong>Gravity: </strong> {{ planet.gravity }}</p>
+
+        <p><strong>Population: </strong> {{ planet.population }}</p>
+        <button class="button button-planet"(click)="goToPlanetDetails(planet)">Details</button>
+      </div>
+    </div>
+
+    <div class="peoples">
+        <div *ngFor="let planet of planets" class="planet">
+          <h4>Name: {{ planet.name }}</h4>
+          <p><strong>Climate: </strong> {{ planet.climate }}</p>
+
+          <p><strong>Diameter: </strong> {{ planet.diameter }}</p>
+
+          <p><strong>Orbital Period: </strong> {{ planet.orbital_period }}</p>
+
+          <p><strong>Gravity: </strong> {{ planet.gravity }}</p>
+
+          <p><strong>Population: </strong> {{ planet.population }}</p>
+        </div>
+      </div>
+  </div>
+</div>
