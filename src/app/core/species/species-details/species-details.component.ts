@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IFilm } from 'src/app/model/film';
+import { IPeople } from 'src/app/model/people';
 import { IPlanet } from 'src/app/model/planet';
 import { ISpecies } from 'src/app/model/species';
-import { IPeople } from 'src/app/model/people';
-import { IStarship } from 'src/app/model/starship';
-import { IVehicle } from 'src/app/model/vehicle';
-import { Router, ActivatedRoute } from '@angular/router';
 import { JSONService } from 'src/app/services/json.service';
 
 @Component({
@@ -13,23 +11,17 @@ import { JSONService } from 'src/app/services/json.service';
   templateUrl: './species-details.component.html',
   styleUrls: ['./species-details.component.scss']
 })
-export class SpeciesDetailsComponent implements OnInit {
+export class SpeciesDetailsComponent {
   public specie: ISpecies;
-  public planets: IPlanet[];
   public films: IFilm[];
   public characters: IPeople[];
-  public starships: IStarship[];
-  public vehicles: IVehicle[];
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private jsonService: JSONService
-  ) {}
-
-  ngOnInit() {
+  ) {
     this.specie = this.activatedRoute.snapshot.data.model;
-
     this.getPeople();
     this.getFilms();
   }
@@ -53,6 +45,7 @@ export class SpeciesDetailsComponent implements OnInit {
           ))
       );
   }
+
 
   goToDetails(path: string, id: string) {
     this.router.navigate([`${path}/details/${id}`]);

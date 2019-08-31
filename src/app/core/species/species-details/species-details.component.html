@@ -1,12 +1,10 @@
 <div class="card">
   <div class="card-title">
     <h1>{{ specie.name }}</h1>
-    <span class="description">Homeworld: {{ specie.homeworld }}</span>
+    <span class="description"> Language: {{ specie.language }} </span>
   </div>
   <div class="card-body">
-    <p class="card-description">
-      <strong>Language:</strong> {{ specie.language }}
-    </p>
+    <p class="card-description"></p>
 
     <p class="card-description">
       <strong>Designation:</strong> {{ specie.designation }}
@@ -40,6 +38,7 @@
       title="Movies this specie appears"
       [items]="films"
       [displayFields]="['title']"
+      path="films"
     >
     </app-card-list>
   </div>
