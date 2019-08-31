@@ -1,1 +1,34 @@
-<p>vehicle-details works!</p>
+<div class="card">
+  <div class="card-title">
+    <h1>{{ vehicle.name }}</h1>
+    <span class="description"
+      >Cost in credits: {{ vehicle.cost_in_credits }}</span
+    >
+  </div>
+  <div class="card-body">
+    <p class="card-description"><strong>Model:</strong> {{ vehicle.model }}</p>
+
+    <p class="card-description">
+      <strong>Max Atmosphering Speed:</strong>
+      {{ vehicle.max_atmosphering_speed }}
+    </p>
+
+    <p class="card-description">
+      <strong>Cargo Capacity:</strong> {{ vehicle.cargo_capacity }}
+    </p>
+
+    <p class="card-description">
+      <strong>Consumables:</strong> {{ vehicle.consumables }}
+    </p>
+
+    <p class="card-description"><strong>Crew:</strong> {{ vehicle.crew }}</p>
+
+    <app-card-list
+      title="Pilots"
+      [items]="characters"
+      [displayFields]="['name', 'gender']"
+      path="people"
+    >
+    </app-card-list>
+  </div>
+</div>

@@ -1,1 +1,47 @@
-<p>vehicles-list works!</p>
+<div class="centered">
+  <div class="cards" *ngIf="vehicles && vehicles.length > 0">
+    <div
+      class="card"
+      *ngFor="
+        let vehicle of vehicles | paginate: { itemsPerPage: 5, currentPage: p }
+      "
+    >
+      <div class="card-title">
+        <h1>{{ vehicle.name }}</h1>
+        <span class="description"
+          >Cost in credits: {{ vehicle.cost_in_credits }}</span
+        >
+      </div>
+      <div class="card-body">
+        <p class="card-description">
+          <strong>Model:</strong> {{ vehicle.model }}
+        </p>
+
+        <p class="card-description">
+          <strong>Max Atmosphering Speed:</strong>
+          {{ vehicle.max_atmosphering_speed }}
+        </p>
+
+        <p class="card-description">
+          <strong>Cargo Capacity:</strong> {{ vehicle.cargo_capacity }}
+        </p>
+
+        <p class="card-description">
+          <strong>Consumables:</strong> {{ vehicle.consumables }}
+        </p>
+
+        <p class="card-description">
+          <strong>Crew:</strong> {{ vehicle.crew }}
+        </p>
+
+        <h3>Pilots:</h3>
+        <ul *ngFor="let people of vehicle.pilots">
+          <li (click)="goToDetails('people', people)">
+            {{ getPeopleName(people) }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

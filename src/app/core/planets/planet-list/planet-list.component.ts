@@ -1,9 +1,8 @@
-import { IPlanet } from 'src/app/model/planet';
 import { Component, OnInit } from '@angular/core';
-import { IPeople } from 'src/app/model/people';
-import { JSONService } from 'src/app/services/json.service';
 import { Router } from '@angular/router';
-import { IPlanet } from 'src/app/model/species';
+import { IPeople } from 'src/app/model/people';
+import { IPlanet } from 'src/app/model/planet';
+import { JSONService } from 'src/app/services/json.service';
 
 @Component({
   selector: 'app-planet-list',
