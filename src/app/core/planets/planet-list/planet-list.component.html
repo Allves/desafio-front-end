@@ -1,4 +1,24 @@
 <div class="centered">
+  <div class="card">
+    <input
+      type="text"
+      name="climate"
+      id="climate"
+      placeholder="Search by Climate"
+      (keydown.enter)="handleSearch()"
+      #climate
+    />
+    <input
+      type="text"
+      name="terrain"
+      id="terrain"
+      placeholder="Search by Terrain"
+      (keydown.enter)="handleSearch()"
+      #terrain
+    />
+
+    <button (click)="handleSearch()">Search</button>
+  </div>
   <div class="cards" *ngIf="planets && planets.length > 0">
     <div
       class="card"

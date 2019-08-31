@@ -1,4 +1,23 @@
 <div class="centered">
+  <div class="card">
+    <input
+      type="text"
+      name="name"
+      id="name"
+      placeholder="Search by Name"
+      (keydown.enter)="handleSearch()"
+      #name
+    />
+    <input
+      type="text"
+      name="gender"
+      id="gender"
+      placeholder="Search by Gender"
+      (keydown.enter)="handleSearch()"
+      #gender
+    />
+    <button (click)="handleSearch()">Search</button>
+  </div>
   <div class="cards" *ngIf="peoples && peoples.length > 0">
     <div
       class="card"

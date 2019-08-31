@@ -1,6 +1,6 @@
 import { IFilm } from './../../../model/film';
 import { JSONService } from './../../../services/json.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { IPeople } from '../../../model/people';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -10,8 +10,13 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./people-list.component.scss']
 })
 export class PeopleListComponent implements OnInit {
+  @ViewChild('name', { static: false }) name: ElementRef;
+  @ViewChild('gender', { static: false }) gender: ElementRef;
+
   public peoples: IPeople[];
   public films: IFilm[];
+
+  public filter: { name: ''; gender: '' };
 
   constructor(
     private jsonService: JSONService,
@@ -30,8 +35,6 @@ export class PeopleListComponent implements OnInit {
       .subscribe((response: IPeople[]) => (this.peoples = response));
   }
 
-
-
   goToDetails(path: string, id: string) {
     this.router.navigate([`${path}/details/${id}`]);
   }
@@ -44,5 +47,25 @@ export class PeopleListComponent implements OnInit {
 
   getFilmName(id: number) {
     return this.films.find(x => x.id === id).title;
+  }
+
+  handleSearch() {
+    this.jsonService
+      .getPeople(this.name.nativeElement.value, this.gender.nativeElement.value)
+      .subscribe((response: IPeople[]) => {
+        this.peoples = response;
+
+        if (this.name.nativeElement.value) {
+          this.peoples = response.filter(e =>
+            e.name.includes(this.name.nativeElement.value)
+          );
+        }
+
+        if (this.gender.nativeElement.value) {
+          this.peoples = response.filter(e =>
+            e.gender.includes(this.gender.nativeElement.value)
+          );
+        }
+      });
   }
 }

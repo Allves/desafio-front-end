@@ -1,32 +1,40 @@
 <div class="centered">
-    <div class="cards" *ngIf="films && films.length > 0">
-      <div
-        class="card"
-        *ngFor="
-          let film of films | paginate: { itemsPerPage: 5, currentPage: p }
-        "
-      >
-        <div class="card-title">
-          <h1>{{ film.title }}</h1>
-          <span class="description">Director: {{ film.director }}</span>
-        </div>
-        <div class="card-body">
-            <p class="card-description">
-                <strong>Producer:</strong> {{ film.producer }}
-              </p>
-          <p class="card-description">
-            <strong>Chronological Order:</strong> {{ film.episode_id }}
-          </p>
-
-
-          <h3>People in film:</h3>
-          <ul *ngFor="let people of film.characters">
-            <li (click)="goToDetails('people', people)">
-              {{ getPeopleName(people) }}
-            </li>
-          </ul>
-        </div>
-      </div>
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    </div>
+  <div class="card">
+    <input
+      type="text"
+      name="title"
+      id="title"
+      placeholder="Search by Title"
+      (keydown.enter)="handleSearch()"
+      #title
+    />
+    <button (click)="handleSearch()">Search</button>
   </div>
+  <div class="cards" *ngIf="films && films.length > 0">
+    <div
+      class="card"
+      *ngFor="let film of films | paginate: { itemsPerPage: 5, currentPage: p }"
+    >
+      <div class="card-title">
+        <h1>{{ film.title }}</h1>
+        <span class="description">Director: {{ film.director }}</span>
+      </div>
+      <div class="card-body">
+        <p class="card-description">
+          <strong>Producer:</strong> {{ film.producer }}
+        </p>
+        <p class="card-description">
+          <strong>Chronological Order:</strong> {{ film.episode_id }}
+        </p>
+
+        <h3>People in film:</h3>
+        <ul *ngFor="let people of film.characters">
+          <li (click)="goToDetails('people', people)">
+            {{ getPeopleName(people) }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

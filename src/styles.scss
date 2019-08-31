@@ -65,6 +65,11 @@ body {
   position: relative;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   min-width: 100%;
+  input,
+  button {
+    margin: 10px;
+  }
+
   &-title {
     color: $yellow;
     .description {
@@ -147,4 +152,32 @@ h3 {
     border-radius: 20px !important;
     border: transparent !important;
   }
+}
+
+.routes {
+  display: block;
+  @media only screen and (min-width: 1024px) {
+    display: flex;
+    justify-content: space-between;
+  }
+  .route {
+    display: block;
+    border: $yellow solid 1px;
+    border-radius: 2px;
+    margin: 1rem 0;
+    padding: 1rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+    text-decoration: none;
+    color: $yellow;
+    cursor: pointer;
+    &:hover {
+      color: $yellow;
+      font-weight: 500;
+    }
+  }
+}
+
+.active {
+  font-weight: 500;
 }

@@ -1,6 +1,6 @@
 import { IPeople } from './../../../model/people';
 import { IFilm } from './../../../model/film';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { JSONService } from 'src/app/services/json.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -10,6 +10,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./films-list.component.scss']
 })
 export class FilmsListComponent implements OnInit {
+  @ViewChild('title', { static: false }) title: ElementRef;
+
   public films: IFilm[];
   public peoples: IPeople[];
 
@@ -30,8 +32,6 @@ export class FilmsListComponent implements OnInit {
       .subscribe((response: IPeople[]) => (this.peoples = response));
   }
 
-
-
   goToDetails(path: string, id: string) {
     this.router.navigate([`${path}/details/${id}`]);
   }
@@ -43,7 +43,17 @@ export class FilmsListComponent implements OnInit {
   }
 
   getPeopleName(id: number) {
-
     return this.peoples.find(x => x.id === id).name;
+  }
+
+  handleSearch() {
+    this.jsonService.getFilms().subscribe((response: IFilm[]) => {
+      this.films = response;
+      if (this.title.nativeElement.value) {
+        this.films = response.filter(e =>
+          e.title.includes(this.title.nativeElement.value)
+        );
+      }
+    });
   }
 }

@@ -1,3 +1,4 @@
+import { IPeople } from './../model/people';
 import { IPeople } from '../model/people';
 import { IVehicle } from '../model/vehicle';
 import { IStarship } from '../model/starship';
@@ -9,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { filter } from 'minimatch';
 
 @Injectable({
   providedIn: 'root'
