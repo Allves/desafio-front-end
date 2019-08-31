@@ -51,7 +51,7 @@ export class PeopleListComponent implements OnInit {
 
   handleSearch() {
     this.jsonService
-      .getPeople(this.name.nativeElement.value, this.gender.nativeElement.value)
+      .getPeople()
       .subscribe((response: IPeople[]) => {
         this.peoples = response;
 

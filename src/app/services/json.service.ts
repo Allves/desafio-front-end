@@ -1,16 +1,14 @@
-import { IPeople } from './../model/people';
-import { IPeople } from '../model/people';
-import { IVehicle } from '../model/vehicle';
-import { IStarship } from '../model/starship';
-import { ISpecies } from '../model/species';
-import { IPlanet } from '../model/planet';
-import { IFilm } from '../model/film';
-
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { filter } from 'minimatch';
+import { IFilm } from '../model/film';
+import { IPeople } from '../model/people';
+import { IPlanet } from '../model/planet';
+import { ISpecies } from '../model/species';
+import { IStarship } from '../model/starship';
+import { IVehicle } from '../model/vehicle';
+
 
 @Injectable({
   providedIn: 'root'
