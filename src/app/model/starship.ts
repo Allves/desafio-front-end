@@ -10,7 +10,7 @@ export interface IStarship {
   cargo_capacity: string;
   consumables: string;
   hyperdrive_rating: string;
-  mGLT: string;
+  MGLT: string;
   starship_class: string;
   pilots: any[];
   films: number[];

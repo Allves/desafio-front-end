@@ -21,6 +21,7 @@ export class VehicleDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.vehicle = this.activatedRoute.snapshot.data.model;
+    console.log(this.vehicle)
 
     this.getPeople();
   }

@@ -1,1 +1,41 @@
-<p>starships-details works!</p>
+<div class="card">
+  <div class="card-title">
+    <h1>{{ starship.name }}</h1>
+    <span class="description"
+      >Cost in credits: {{ starship.cost_in_credits }}</span
+    >
+  </div>
+  <div class="card-body">
+    <p class="card-description"><strong>Model:</strong> {{ starship.model }}</p>
+
+    <p class="card-description">
+      <strong>Max Atmosphering Speed:</strong>
+      {{ starship.max_atmosphering_speed }}
+    </p>
+
+    <p class="card-description">
+      <strong>Hyperdrive Rating:</strong>
+      {{ starship.hyperdrive_rating }}
+    </p>
+
+    <p class="card-description"><strong>MGLT:</strong> {{ starship.MGLT }}</p>
+
+    <p class="card-description">
+      <strong>Cargo Capacity:</strong> {{ starship.cargo_capacity }}
+    </p>
+
+    <p class="card-description">
+      <strong>Consumables:</strong> {{ starship.consumables }}
+    </p>
+
+    <p class="card-description"><strong>Crew:</strong> {{ starship.crew }}</p>
+
+    <app-card-list
+      title="Pilots"
+      [items]="characters"
+      [displayFields]="['name', 'gender']"
+      path="people"
+    >
+    </app-card-list>
+  </div>
+</div>

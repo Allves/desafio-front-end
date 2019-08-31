@@ -1,1 +1,48 @@
-<p>starships-list works!</p>
+<div class="centered">
+  <div class="cards" *ngIf="starships && starships.length > 0">
+    <div
+      class="card"
+      *ngFor="
+        let starship of starships
+          | paginate: { itemsPerPage: 5, currentPage: p }
+      "
+    >
+      <div class="card-title">
+        <h1>{{ starship.name }}</h1>
+        <span class="description"
+          >Cost in credits: {{ starship.cost_in_credits }}</span
+        >
+      </div>
+      <div class="card-body">
+        <p class="card-description">
+          <strong>Model:</strong> {{ starship.model }}
+        </p>
+
+        <p class="card-description">
+          <strong>Max Atmosphering Speed:</strong>
+          {{ starship.max_atmosphering_speed }}
+        </p>
+
+        <p class="card-description">
+          <strong>Cargo Capacity:</strong> {{ starship.cargo_capacity }}
+        </p>
+
+        <p class="card-description">
+          <strong>MGLT:</strong> {{ starship.MGLT }}
+        </p>
+
+        <p class="card-description">
+          <strong>Hyperdrive Rating:</strong> {{ starship.hyperdrive_rating }}
+        </p>
+
+        <h3>Pilots:</h3>
+        <ul *ngFor="let people of starship.pilots">
+          <li (click)="goToDetails('people', people)">
+            {{ getPeopleName(people) }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>
