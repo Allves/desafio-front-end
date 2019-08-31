@@ -82,7 +82,8 @@ export class JSONService {
     return this.http.get<any>('../../../assets/db/starships.json').pipe(
       tap(response =>
         response.results.sort((a: IStarship, b: IStarship) =>
-          b.cost_in_credits > a.cost_in_credits || a.cost_in_credits === 'unknown'
+          b.cost_in_credits > a.cost_in_credits ||
+          a.cost_in_credits === 'unknown'
             ? 1
             : b.cost_in_credits < a.cost_in_credits
             ? -1
@@ -98,7 +99,8 @@ export class JSONService {
     return this.http.get<any>('../../../assets/db/vehicles.json').pipe(
       tap(response =>
         response.results.sort((a: IVehicle, b: IVehicle) =>
-          b.cost_in_credits > a.cost_in_credits || a.cost_in_credits === 'unknown'
+          b.cost_in_credits > a.cost_in_credits ||
+          a.cost_in_credits === 'unknown'
             ? 1
             : b.cost_in_credits < a.cost_in_credits
             ? -1
@@ -110,42 +112,42 @@ export class JSONService {
     );
   }
 
-  getUniquePlanet(id: string): Observable<IPlanet> {
+  getUniquePlanet(id: number): Observable<IPlanet> {
     return this.http.get<any>('../../../assets/db/planets.json').pipe(
       map(response => response.results.find(x => x.id.toString() === id)),
       catchError(this.handleError('getUniquePlanet', []))
     );
   }
 
-  getUniquePeople(id: string): Observable<IPeople> {
+  getUniquePeople(id: number): Observable<IPeople> {
     return this.http.get<any>('../../../assets/db/people.json').pipe(
       map(response => response.results.find(x => x.id.toString() === id)),
       catchError(this.handleError('getUniquePeople', []))
     );
   }
 
-  getUniqueFilm(id: string): Observable<IFilm> {
+  getUniqueFilm(id: number): Observable<IFilm> {
     return this.http.get<any>('../../../assets/db/films.json').pipe(
       map(response => response.results.find(x => x.id.toString() === id)),
       catchError(this.handleError('getUniqueFilm', []))
     );
   }
 
-  getUniqueSpecies(id: string): Observable<ISpecies> {
+  getUniqueSpecies(id: number): Observable<ISpecies> {
     return this.http.get<any>('../../../assets/db/species.json').pipe(
       map(response => response.results.find(x => x.id.toString() === id)),
       catchError(this.handleError('getUniqueSpecies', []))
     );
   }
 
-  getUniqueStarship(id: string): Observable<IStarship> {
+  getUniqueStarship(id: number): Observable<IStarship> {
     return this.http.get<any>('../../../assets/db/starships.json').pipe(
       map(response => response.results.find(x => x.id.toString() === id)),
       catchError(this.handleError('getUniqueStarship', []))
     );
   }
 
-  getUniqueVehicle(id: string): Observable<IVehicle> {
+  getUniqueVehicle(id: number): Observable<IVehicle> {
     return this.http.get<any>('../../../assets/db/vehicles.json').pipe(
       map(response => response.results.find(x => x.id.toString() === id)),
       catchError(this.handleError('getUniqueVehicle', []))

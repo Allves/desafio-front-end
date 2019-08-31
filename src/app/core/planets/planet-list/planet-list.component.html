@@ -1,1 +1,39 @@
-<p>planet-list works!</p>
+<div class="centered">
+  <div class="cards" *ngIf="planets && planets.length > 0">
+    <div
+      class="card"
+      *ngFor="
+        let planet of planets | paginate: { itemsPerPage: 5, currentPage: p }
+      "
+    >
+      <div class="card-title">
+        <h1>{{ planet.name }}</h1>
+        <span class="description">Population: {{ planet.population }}</span>
+      </div>
+      <div class="card-body">
+        <p class="card-description">
+          <strong>Climate:</strong> {{ planet.climate }}
+        </p>
+        <p class="card-description">
+          <strong>Terrain:</strong> {{ planet.terrain }}
+        </p>
+
+        <p class="card-description">
+          <strong>Gravity:</strong> {{ planet.gravity }}
+        </p>
+
+        <p class="card-description">
+          <strong>Diameter:</strong> {{ planet.diameter }}
+        </p>
+
+        <h3>Characters who are of this race:</h3>
+        <ul *ngFor="let people of planet.residents">
+          <li (click)="goToDetails('people', people)">
+            {{ getPeopleName(people) }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

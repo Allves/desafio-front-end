@@ -1,1 +1,38 @@
-<p>planet-details works!</p>
+<div class="card">
+  <div class="card-title">
+    <h1>{{ planet.name }}</h1>
+    <span class="description">Population: {{ planet.population }}</span>
+  </div>
+  <div class="card-body">
+    <p class="card-description">
+      <strong>Climate:</strong> {{ planet.climate }}
+    </p>
+    <p class="card-description">
+      <strong>Terrain:</strong> {{ planet.terrain }}
+    </p>
+
+    <p class="card-description">
+      <strong>Rotation Period:</strong> {{ planet.terrain }}
+    </p>
+
+    <p class="card-description">
+      <strong>Gravity:</strong> {{ planet.gravity }}
+    </p>
+
+    <p class="card-description">
+      <strong>Diameter:</strong> {{ planet.diameter }}
+    </p>
+
+    <p class="card-description">
+      <strong>Surface Water:</strong> {{ planet.surface_water }}
+    </p>
+
+    <app-card-list
+      title="Residentes of this planet"
+      [items]="characters"
+      [displayFields]="['name', 'gender']"
+      path="people"
+    >
+    </app-card-list>
+  </div>
+</div>
